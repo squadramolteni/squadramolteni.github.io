@@ -1,0 +1,448 @@
+/* Version A "Avis": newsprint paper, black ink, condensed slab headlines, Molteni orange only in the masthead and the links. */
+/* Fonts (SIL Open Font License 1.1, licence texts in /assets/fonts/): Rokkitt by The Rokkitt Project Authors, Newsreader by The Newsreader Project Authors. */
+@font-face { font-family: "Rokkitt"; src: url(/assets/fonts/rokkitt-latin-700-normal.woff2) format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "Newsreader"; src: url(/assets/fonts/newsreader-latin-400-normal.woff2) format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Newsreader"; src: url(/assets/fonts/newsreader-latin-400-italic.woff2) format("woff2"); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: "Newsreader"; src: url(/assets/fonts/newsreader-latin-700-normal.woff2) format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+
+:root {
+  /* Squadra Molteni colours, taken from the club's logo and jersey */
+  --molteni-orange: #f98d2a;
+  --molteni-black: #130d11;
+  --molteni-rust-dark: #9a3f15; /* the jersey rust #b75a33, darkened for text */
+
+  --color-paper: #f4efe4;
+  --color-ink: #1a1714;
+  --color-heading: var(--color-ink);
+  --color-muted: #5c564d;
+  --color-rule: #c9bfae;
+  --color-link: var(--molteni-rust-dark);
+  --color-link-hover: var(--color-ink);
+  --color-focus: var(--molteni-rust-dark);
+  --color-accent: var(--color-ink);
+  --color-quote: var(--color-ink);
+
+  --color-header-bg: var(--molteni-orange);
+  --color-header-text: var(--color-ink);
+  --color-header-edge: var(--molteni-orange);
+  --color-header-edge-bottom: var(--molteni-black);
+  --header-edge-top: 0;
+  --header-edge-bottom: 0.375rem;
+  --header-padding: 0.75rem;
+  --stripe: none;
+  --stripe-height: 0;
+
+  --color-h2-rule: var(--color-ink);
+  --h2-rule-width: 1px;
+  --h2-rule-gap: 0.375rem;
+
+  --color-nameplate-rule: var(--color-ink);
+  --nameplate-rule-top: 0.375rem;
+  --nameplate-rule-bottom: 1px;
+  --nameplate-transform: uppercase;
+  --nameplate-letter-spacing: 0.02em;
+  --nameplate-align: center;
+  --intro-style: italic;
+
+  --color-tile-bg: transparent;
+  --color-tile-hover-bg: #e9e1d0;
+  --color-tile-border: var(--color-ink);
+  --color-tile-link: var(--color-ink);
+  --color-tile-count: var(--color-muted);
+  --tile-border-width: 1px;
+
+  /* Year and category chips on the front page (ink on paper 15.57:1, count 6.33:1; on hover 13.72:1 and 5.58:1) */
+  --chip-padding-y: var(--space-xs);
+  --chip-padding-x: var(--space-s);
+  --chip-gap: var(--space-s);
+  --font-size-chip: 1rem;
+
+  /* Menu button in the masthead (ink on orange 7.54:1; open: orange on ink 7.54:1) */
+  --color-menu-open-bg: var(--color-header-text);
+  --color-menu-open-text: var(--color-header-bg);
+  --menu-button-border-width: 2px;
+  --font-size-menu-icon: 1.25rem;
+
+  /* Footer (rust links on paper 5.92:1) */
+  --color-footer-rule: var(--color-ink);
+  --footer-rule-width: var(--border-width-thick);
+
+  /* Band under the masthead (paper text on rust: contrast 5.92:1) */
+  --color-band-bg: var(--molteni-rust-dark);
+  --color-band-text: var(--color-paper);
+  --color-band-link: var(--color-paper);
+  --color-band-edge: var(--molteni-black);
+  --band-edge-width: 0.25rem;
+  --band-padding: var(--space-s);
+  --font-size-band: 1rem;
+
+  /* Højdepunkter cards on the front page */
+  --color-card-bg: transparent;
+  --color-card-hover-bg: var(--color-tile-hover-bg);
+  --color-card-border: var(--color-ink);
+  --card-border-width: 1px;
+  --card-columns: 2;
+  --wide-width: 56rem;
+  --screen-width: 100vw;
+  --centre: 50%;
+  --centre-back: -50%;
+  --card-gap: var(--space-m);
+  --card-image-ratio: 3 / 2;
+  --font-size-card-title: 1.0625rem;
+
+  /* Location label on a card image: solid chip, paper on ink 15.57:1, readable over any photo */
+  --color-place-bg: var(--color-ink);
+  --color-place-text: var(--color-paper);
+  --color-flag-edge: var(--color-rule);
+  --font-size-place: 0.875rem;
+  --place-inset: var(--space-xs);
+  --place-padding-y: 0.125rem;
+  --place-padding-x: var(--space-xs);
+  --flag-width: 1.125rem;
+
+  --color-panel-bg: #ebe3d2;
+  --color-panel-border: var(--color-ink);
+  --panel-border-width: 2px;
+
+  --font-body: "Newsreader", Georgia, "Times New Roman", serif;
+  --font-heading: "Rokkitt", "Rockwell", Georgia, serif;
+  --font-nav: var(--font-heading);
+  --font-meta: var(--font-body);
+  --font-caption: var(--font-body);
+  --font-weight-heading: 700;
+  --font-weight-nav: 700;
+  --heading-variation: normal;
+  --nav-variation: normal;
+  --heading-transform: none;
+  --heading-letter-spacing: normal;
+  --nav-transform: uppercase;
+  --nav-letter-spacing: 0.03em;
+  --meta-transform: uppercase;
+  --meta-letter-spacing: 0.06em;
+  --caption-style: italic;
+  --quote-style: normal;
+
+  --font-size-base: 1.125rem;
+  --font-size-small: 0.9375rem;
+  --font-size-nav: 0.9375rem;
+  --font-size-h1: 2.25rem;
+  --font-size-h2: 1.5rem;
+  --font-size-h3: 1.25rem;
+  --font-size-nameplate: 2.75rem;
+  --line-height: 1.6;
+  --line-height-heading: 1.1;
+
+  --space-xs: 0.25rem;
+  --space-s: 0.5rem;
+  --space-m: 1rem;
+  --space-l: 2rem;
+  --border-width: 1px;
+  --border-width-thick: 3px;
+  --leader-width: 2px;
+  --link-underline-width: 1px;
+  --link-underline-offset: 0.15em;
+  --focus-width: 2px;
+  --focus-offset: 2px;
+  --page-max-width: 40rem;
+  --gallery-min: 9rem;
+  --gallery-ratio: 4 / 3;
+  --player-ratio: 16 / 9;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height);
+}
+
+main, .site-header nav, .site-footer nav {
+  max-width: var(--page-max-width);
+  margin: 0 auto;
+  padding: var(--space-m);
+}
+
+a {
+  color: var(--color-link);
+  text-decoration-thickness: var(--link-underline-width);
+  text-underline-offset: var(--link-underline-offset);
+}
+a:hover { color: var(--color-link-hover); }
+a:focus-visible { outline: var(--focus-width) solid var(--color-focus); outline-offset: var(--focus-offset); }
+
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  font-weight: var(--font-weight-heading);
+  font-variation-settings: var(--heading-variation);
+  text-transform: var(--heading-transform);
+  letter-spacing: var(--heading-letter-spacing);
+  line-height: var(--line-height-heading);
+  color: var(--color-heading);
+}
+h1 { font-size: var(--font-size-h1); margin: var(--space-m) 0 var(--space-s); }
+h2 {
+  font-size: var(--font-size-h2);
+  margin: var(--space-l) 0 var(--space-s);
+  padding-top: var(--h2-rule-gap);
+  border-top: var(--h2-rule-width) solid var(--color-h2-rule);
+}
+h3 { font-size: var(--font-size-h3); margin: var(--space-l) 0 var(--space-s); }
+
+/* Masthead: the band at the top of every page with the menu */
+.site-header {
+  background: var(--color-header-bg);
+  color: var(--color-header-text);
+  border-top: var(--header-edge-top) solid var(--color-header-edge);
+  border-bottom: var(--header-edge-bottom) solid var(--color-header-edge-bottom);
+}
+.site-header::after {
+  content: "";
+  display: block;
+  height: var(--stripe-height);
+  background: var(--stripe);
+}
+.site-header nav { padding-top: var(--header-padding); padding-bottom: var(--header-padding); }
+.site-header ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--space-s) var(--space-m); line-height: var(--line-height-heading); }
+.site-header a {
+  color: var(--color-header-text);
+  font-family: var(--font-nav);
+  font-weight: var(--font-weight-nav);
+  font-variation-settings: var(--nav-variation);
+  font-size: var(--font-size-nav);
+  text-transform: var(--nav-transform);
+  letter-spacing: var(--nav-letter-spacing);
+  text-decoration: none;
+}
+.site-header a:hover { text-decoration: underline; }
+.site-header a:focus-visible { outline-color: var(--color-header-text); }
+
+/* Menu: a button that opens the list of links, the same on every screen, without script */
+.menu summary {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-s);
+  padding: var(--space-xs) var(--space-s);
+  border: var(--menu-button-border-width) solid var(--color-header-text);
+  color: var(--color-header-text);
+  font-family: var(--font-nav);
+  font-weight: var(--font-weight-nav);
+  font-variation-settings: var(--nav-variation);
+  font-size: var(--font-size-nav);
+  text-transform: var(--nav-transform);
+  letter-spacing: var(--nav-letter-spacing);
+  line-height: var(--line-height-heading);
+  list-style: none;
+  cursor: pointer;
+}
+.menu summary::-webkit-details-marker { display: none; }
+.menu summary span { font-size: var(--font-size-menu-icon); }
+.menu summary:focus-visible { outline: var(--focus-width) solid var(--color-header-text); outline-offset: var(--focus-offset); }
+.menu[open] summary { background: var(--color-menu-open-bg); color: var(--color-menu-open-text); }
+.menu ul { flex-direction: column; padding-top: var(--space-s); }
+.menu a { display: block; padding: var(--space-xs) 0; }
+
+/* Footer: the menu links again, on every page */
+.site-footer { margin-top: var(--space-l); border-top: var(--footer-rule-width) solid var(--color-footer-rule); }
+.site-footer ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--space-s) var(--space-m); line-height: var(--line-height-heading); }
+.site-footer a {
+  font-family: var(--font-nav);
+  font-weight: var(--font-weight-nav);
+  font-variation-settings: var(--nav-variation);
+  font-size: var(--font-size-nav);
+  text-transform: var(--nav-transform);
+  letter-spacing: var(--nav-letter-spacing);
+}
+
+/* Band under the masthead: one line of news with a link to Facebook, wraps on a phone */
+.facebook-band {
+  margin: 0;
+  padding: var(--band-padding) var(--space-m);
+  background: var(--color-band-bg);
+  color: var(--color-band-text);
+  border-bottom: var(--band-edge-width) solid var(--color-band-edge);
+  font-size: var(--font-size-band);
+  line-height: var(--line-height-heading);
+  text-align: center;
+}
+.facebook-band a { color: var(--color-band-link); font-weight: var(--font-weight-nav); }
+.facebook-band a:hover { color: var(--color-band-link); text-decoration-thickness: var(--border-width-thick); }
+.facebook-band a:focus-visible { outline-color: var(--color-band-link); }
+
+/* Date, author, categories and tags under an article title */
+.meta {
+  color: var(--color-muted);
+  font-family: var(--font-meta);
+  font-size: var(--font-size-small);
+  text-transform: var(--meta-transform);
+  letter-spacing: var(--meta-letter-spacing);
+  margin: 0 0 var(--space-s);
+}
+.count, time { color: var(--color-muted); font-size: var(--font-size-small); }
+
+/* Front page: the name as a newspaper nameplate, the intro line as its dateline */
+h1:has(+ .intro) {
+  font-size: var(--font-size-nameplate);
+  text-transform: var(--nameplate-transform);
+  letter-spacing: var(--nameplate-letter-spacing);
+  text-align: var(--nameplate-align);
+  margin: var(--space-m) 0 0;
+  padding: var(--space-s) 0;
+  border-top: var(--nameplate-rule-top) solid var(--color-nameplate-rule);
+  border-bottom: var(--nameplate-rule-bottom) solid var(--color-nameplate-rule);
+}
+.intro {
+  font-family: var(--font-meta);
+  font-style: var(--intro-style);
+  text-align: var(--nameplate-align);
+  color: var(--color-muted);
+  margin: 0 0 var(--space-l);
+  padding: var(--space-s) 0;
+  border-bottom: var(--border-width) solid var(--color-nameplate-rule);
+}
+
+ul.article-list, ul.tag-list { list-style: none; padding: 0; }
+ul.article-list li, ul.tag-list li {
+  padding: var(--space-s) 0;
+  border-bottom: var(--border-width) solid var(--color-rule);
+}
+ul.article-list time { display: block; font-family: var(--font-meta); }
+
+/* Front page years and categories: small chips, the whole chip is the link */
+ul.chips { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: var(--chip-gap); }
+ul.chips li {
+  position: relative;
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-xs);
+  padding: var(--chip-padding-y) var(--chip-padding-x);
+  background: var(--color-tile-bg);
+  border: var(--tile-border-width) solid var(--color-tile-border);
+  font-size: var(--font-size-chip);
+  line-height: var(--line-height-heading);
+}
+ul.chips li:hover { background: var(--color-tile-hover-bg); }
+ul.chips a {
+  color: var(--color-tile-link);
+  font-family: var(--font-heading);
+  font-weight: var(--font-weight-heading);
+  font-variation-settings: var(--heading-variation);
+  text-decoration: none;
+}
+ul.chips a::after { content: ""; position: absolute; inset: 0; }
+ul.chips span { color: var(--color-tile-count); font-size: var(--font-size-chip); font-family: var(--font-meta); }
+
+/* Front page "Højdepunkter": one card per chosen article, the whole card is the link */
+ul.cards {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(var(--card-columns), 1fr);
+  gap: var(--card-gap);
+}
+ul.cards li { background: var(--color-card-bg); border: var(--card-border-width) solid var(--color-card-border); }
+ul.cards li:hover { background: var(--color-card-hover-bg); }
+ul.cards a { display: block; height: 100%; color: var(--color-ink); text-decoration: none; }
+.card-image { display: block; position: relative; }
+img.photo { display: block; width: 100%; aspect-ratio: var(--card-image-ratio); object-fit: cover; }
+ul.cards h3 { font-size: var(--font-size-card-title); margin: var(--space-s) var(--space-s) var(--space-xs); }
+ul.cards time { display: block; margin: 0 var(--space-s) var(--space-s); font-family: var(--font-meta); }
+
+/* Location label on the card image: flag, pin, country */
+.place {
+  position: absolute;
+  left: var(--place-inset);
+  bottom: var(--place-inset);
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--place-padding-y) var(--place-padding-x);
+  background: var(--color-place-bg);
+  color: var(--color-place-text);
+  font-family: var(--font-meta);
+  font-size: var(--font-size-place);
+  line-height: var(--line-height-heading);
+}
+.place img { display: block; width: var(--flag-width); border: var(--border-width) solid var(--color-flag-edge); }
+
+/* Categories and tags: name, a dotted leader, then the count */
+ul.tag-list a { display: flex; flex: auto; align-items: baseline; gap: var(--space-s); }
+ul.tag-list li { display: flex; align-items: baseline; gap: var(--space-s); }
+ul.tag-list a::after {
+  content: "";
+  flex: auto;
+  border-bottom: var(--leader-width) dotted var(--color-rule);
+}
+
+img, video { max-width: 100%; height: auto; }
+img.featured { display: block; margin: var(--space-m) 0; }
+
+figure { margin: var(--space-m) 0; }
+figure img { display: block; }
+figcaption {
+  color: var(--color-muted);
+  font-family: var(--font-caption);
+  font-style: var(--caption-style);
+  font-size: var(--font-size-small);
+  padding-top: var(--space-xs);
+}
+
+.body blockquote {
+  margin: var(--space-m) 0;
+  padding-left: var(--space-m);
+  border-left: var(--border-width-thick) solid var(--color-accent);
+  color: var(--color-quote);
+  font-style: var(--quote-style);
+}
+
+.body hr { border: 0; border-top: var(--border-width) solid var(--color-rule); margin: var(--space-l) 0; }
+
+.body table { display: block; max-width: 100%; overflow-x: auto; border-collapse: collapse; }
+.body td, .body th { border: var(--border-width) solid var(--color-rule); padding: var(--space-s); }
+
+/* WordPress one-cell tables were fact boxes: show them as a boxed panel */
+.body table:has(td:only-child) {
+  margin: var(--space-l) 0;
+  padding: var(--space-m);
+  background: var(--color-panel-bg);
+  border: var(--panel-border-width) solid var(--color-panel-border);
+}
+.body td:only-child { display: block; border: 0; padding: 0; }
+.body td:only-child h2 { margin-top: 0; padding-top: 0; border-top: 0; }
+.body td:only-child p:last-child { margin-bottom: 0; }
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(var(--gallery-min), 1fr));
+  gap: var(--space-s);
+  margin: var(--space-m) 0;
+}
+.gallery figure { margin: 0; }
+.gallery img { display: block; width: 100%; aspect-ratio: var(--gallery-ratio); object-fit: cover; }
+
+.player { position: relative; aspect-ratio: var(--player-ratio); margin: var(--space-m) 0; }
+.player iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+
+.prev-next { display: flex; flex-direction: column; gap: var(--space-s); margin-top: var(--space-l); padding-top: var(--space-m); border-top: var(--border-width) solid var(--color-rule); }
+.prev-next .next { text-align: right; }
+
+@media (min-width: 48rem) {
+  :root {
+    --font-size-base: 1.25rem;
+    --font-size-small: 1rem;
+    --font-size-h1: 3.25rem;
+    --font-size-h2: 1.75rem;
+    --font-size-nameplate: 5rem;
+    --header-padding: 1rem;
+    --gallery-min: 12rem;
+    --card-columns: 3;
+    --font-size-card-title: 1.25rem;
+    --font-size-nav: 1.0625rem;
+  }
+  /* Højdepunkter is wider than the text column, centred on it, never wider than the screen */
+  #hoejdepunkter { width: var(--wide-width); max-width: calc(var(--screen-width) - var(--space-m) - var(--space-m)); margin-left: var(--centre); transform: translateX(var(--centre-back)); }
+  .prev-next { flex-direction: row; justify-content: space-between; }
+}
