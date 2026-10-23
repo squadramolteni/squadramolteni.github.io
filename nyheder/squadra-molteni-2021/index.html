@@ -5,13 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Squadra Molteni 2021 – Squadra Molteni</title>
 <link rel="canonical" href="https://squadramolteni.github.io/nyheder/squadra-molteni-2021/">
+<link rel="stylesheet" href="/pagefind/pagefind-ui.css">
 <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
 <header class="site-header">
+<div class="header-row">
 <nav aria-label="Hovedmenu">
 <details class="menu">
-<summary><span aria-hidden="true">☰</span> Menu</summary>
+<summary aria-label="Menu"><span aria-hidden="true">☰</span></summary>
 <ul>
 <li><a href="/">Forside</a></li>
 <li><a href="/#kategorier">Kategorier</a></li>
@@ -25,18 +27,20 @@
 
 </details>
 </nav>
+<div id="search" class="site-search"></div>
+</div>
 </header>
-<p class="facebook-band"><span aria-hidden="true">🚴</span> Squadra Molteni stikker stadig i højre og venstre. <a href="https://www.facebook.com/SquadraMolteni">Følg os på Facebook →</a></p>
+<p class="facebook-band"><span aria-hidden="true">🚴</span> Vi stikker stadig i højre og venstre. <a href="https://www.facebook.com/SquadraMolteni">Følg os på Facebook →</a></p>
 <main>
-<article>
+<article data-pagefind-body>
 <h1>Squadra Molteni 2021</h1>
-<p class="meta"><time datetime="2021-12-06T20:19:05+01:00">06.12.2021</time> · Squadra Molteni</p>
-<p class="meta"><a href="/category/nyheder/">Nyheder</a></p>
+<p class="meta" data-pagefind-ignore><time datetime="2021-12-06T20:19:05+01:00">06.12.2021</time> · Squadra Molteni</p>
+<p class="meta" data-pagefind-ignore><a href="/category/nyheder/">Nyheder</a></p>
 
 
 <div class="body"><video controls="" preload="metadata" src="Squadra-Molteni-2021.mp4"></video>
 </div>
-<nav class="prev-next" aria-label="Forrige og næste artikel">
+<nav class="prev-next" aria-label="Forrige og næste artikel" data-pagefind-ignore>
 <a class="previous" href="/nyheder/grand-prix-gruppo-sportivo-velopresse-2021/">← Grand Prix Gruppo Sportivo Velopresse 2021</a>
 <a class="next" href="/nyheder/ja-vi-bruger-ogsaa-kartoner/">Ja, vi bruger også kartoner! →</a>
 </nav>
@@ -58,5 +62,7 @@
 
 </nav>
 </footer>
+<script src="/pagefind/pagefind-ui.js"></script>
+<script>new PagefindUI({ element: "#search", showImages: false, showSubResults: false, resetStyles: false });</script>
 </body>
 </html>

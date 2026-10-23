@@ -5,14 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Jeg går kun efter podieplaceringer! – Squadra Molteni</title>
 <link rel="canonical" href="https://squadramolteni.github.io/nyheder/jeg-gaar-kun-podieplaceringer/">
+<link rel="stylesheet" href="/pagefind/pagefind-ui.css">
 <link rel="stylesheet" href="/assets/css/style.css">
 <link rel="stylesheet" href="/assets/glightbox/glightbox.min.css">
 </head>
 <body>
 <header class="site-header">
+<div class="header-row">
 <nav aria-label="Hovedmenu">
 <details class="menu">
-<summary><span aria-hidden="true">☰</span> Menu</summary>
+<summary aria-label="Menu"><span aria-hidden="true">☰</span></summary>
 <ul>
 <li><a href="/">Forside</a></li>
 <li><a href="/#kategorier">Kategorier</a></li>
@@ -26,13 +28,15 @@
 
 </details>
 </nav>
+<div id="search" class="site-search"></div>
+</div>
 </header>
-<p class="facebook-band"><span aria-hidden="true">🚴</span> Squadra Molteni stikker stadig i højre og venstre. <a href="https://www.facebook.com/SquadraMolteni">Følg os på Facebook →</a></p>
+<p class="facebook-band"><span aria-hidden="true">🚴</span> Vi stikker stadig i højre og venstre. <a href="https://www.facebook.com/SquadraMolteni">Følg os på Facebook →</a></p>
 <main>
-<article>
+<article data-pagefind-body>
 <h1>Jeg går kun efter podieplaceringer!</h1>
-<p class="meta"><time datetime="2019-04-02T21:01:11+02:00">02.04.2019</time> · Squadra Molteni</p>
-<p class="meta"><a href="/category/nyheder/">Nyheder</a></p>
+<p class="meta" data-pagefind-ignore><time datetime="2019-04-02T21:01:11+02:00">02.04.2019</time> · Squadra Molteni</p>
+<p class="meta" data-pagefind-ignore><a href="/category/nyheder/">Nyheder</a></p>
 
 <img class="featured" src="/nyheder/jeg-gaar-kun-podieplaceringer/jeppe.webp" alt="">
 <div class="body"><p><strong>Tema: Sæsonstart 2019 – Jeppe Thiemer<br/>
@@ -60,7 +64,7 @@ Jeppe har selv udført malearbejdet og det har givet cyklen sjæl og en medfødt
 Der mangler selvfølgelig en kæde, men den er ved at blive specialsmedet på et hemmeligt skibsværft i Nordtyskland. Den skal jo kunne holde til op til flere watt!</p>
 <p><em>Foto: Martin Paldan og Jeppe Thiemer</em></p>
 </div>
-<nav class="prev-next" aria-label="Forrige og næste artikel">
+<nav class="prev-next" aria-label="Forrige og næste artikel" data-pagefind-ignore>
 <a class="previous" href="/nyheder/squadra-molteni-skifter-orange-lyseblaa/">← Squadra Molteni skifter fra orange til lyseblå</a>
 <a class="next" href="/nyheder/saesonstart-ved-ronde-van-borum/">Sæsonstart ved Ronde van Borum →</a>
 </nav>
@@ -84,5 +88,7 @@ Der mangler selvfølgelig en kæde, men den er ved at blive specialsmedet på et
 </footer>
 <script src="/assets/glightbox/glightbox.min.js"></script>
 <script>GLightbox({selector: '.glightbox'});</script>
+<script src="/pagefind/pagefind-ui.js"></script>
+<script>new PagefindUI({ element: "#search", showImages: false, showSubResults: false, resetStyles: false });</script>
 </body>
 </html>

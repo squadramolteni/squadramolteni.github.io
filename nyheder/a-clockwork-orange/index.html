@@ -5,13 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>A Clockwork Orange – Squadra Molteni</title>
 <link rel="canonical" href="https://squadramolteni.github.io/nyheder/a-clockwork-orange/">
+<link rel="stylesheet" href="/pagefind/pagefind-ui.css">
 <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
 <header class="site-header">
+<div class="header-row">
 <nav aria-label="Hovedmenu">
 <details class="menu">
-<summary><span aria-hidden="true">☰</span> Menu</summary>
+<summary aria-label="Menu"><span aria-hidden="true">☰</span></summary>
 <ul>
 <li><a href="/">Forside</a></li>
 <li><a href="/#kategorier">Kategorier</a></li>
@@ -25,13 +27,15 @@
 
 </details>
 </nav>
+<div id="search" class="site-search"></div>
+</div>
 </header>
-<p class="facebook-band"><span aria-hidden="true">🚴</span> Squadra Molteni stikker stadig i højre og venstre. <a href="https://www.facebook.com/SquadraMolteni">Følg os på Facebook →</a></p>
+<p class="facebook-band"><span aria-hidden="true">🚴</span> Vi stikker stadig i højre og venstre. <a href="https://www.facebook.com/SquadraMolteni">Følg os på Facebook →</a></p>
 <main>
-<article>
+<article data-pagefind-body>
 <h1>A Clockwork Orange</h1>
-<p class="meta"><time datetime="2020-05-17T15:19:00+02:00">17.05.2020</time> · Squadra Molteni</p>
-<p class="meta"><a href="/category/nyheder/">Nyheder</a></p>
+<p class="meta" data-pagefind-ignore><time datetime="2020-05-17T15:19:00+02:00">17.05.2020</time> · Squadra Molteni</p>
+<p class="meta" data-pagefind-ignore><a href="/category/nyheder/">Nyheder</a></p>
 
 <img class="featured" src="/nyheder/a-clockwork-orange/Skærmbillede-2020-05-17-kl.-16.31.01.webp" alt="">
 <div class="body"><p><strong>Coronacup 3. afdeling:</strong> Svend Seegert sætter personlig rekord med 1/100 sek – og Lars Munch med 10 sekunder.</p>
@@ -44,7 +48,7 @@
 <p><a href="Skærmbillede-2020-05-17-kl.-16.01.26.webp"><img alt="" src="Skærmbillede-2020-05-17-kl.-16.01.26.webp"/></a></p>
 <p>Kaptajn Bjørnsteen og Grane Maaløe lavede begge en DNS, da de begge er på et <strong>kombineret vindtunnel- og højdetræningsophold i Rostock.</strong></p>
 </div>
-<nav class="prev-next" aria-label="Forrige og næste artikel">
+<nav class="prev-next" aria-label="Forrige og næste artikel" data-pagefind-ignore>
 <a class="previous" href="/nyheder/thiemer-faar-mellemkoedsvinkelmaaler-sponsoreret-campagnolo/">← Thiemer får mellemkødsvinkelmåler sponsoreret af Campagnolo</a>
 <a class="next" href="/nyheder/optakt-strade-marroni-ulvekoblet/">Optakt Strade Marroni: “Ulvekoblet” →</a>
 </nav>
@@ -66,5 +70,7 @@
 
 </nav>
 </footer>
+<script src="/pagefind/pagefind-ui.js"></script>
+<script>new PagefindUI({ element: "#search", showImages: false, showSubResults: false, resetStyles: false });</script>
 </body>
 </html>

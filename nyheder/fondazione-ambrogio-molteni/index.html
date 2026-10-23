@@ -5,13 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Fondazione Ambrogio Molteni – Squadra Molteni</title>
 <link rel="canonical" href="https://squadramolteni.github.io/nyheder/fondazione-ambrogio-molteni/">
+<link rel="stylesheet" href="/pagefind/pagefind-ui.css">
 <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
 <header class="site-header">
+<div class="header-row">
 <nav aria-label="Hovedmenu">
 <details class="menu">
-<summary><span aria-hidden="true">☰</span> Menu</summary>
+<summary aria-label="Menu"><span aria-hidden="true">☰</span></summary>
 <ul>
 <li><a href="/">Forside</a></li>
 <li><a href="/#kategorier">Kategorier</a></li>
@@ -25,13 +27,15 @@
 
 </details>
 </nav>
+<div id="search" class="site-search"></div>
+</div>
 </header>
-<p class="facebook-band"><span aria-hidden="true">🚴</span> Squadra Molteni stikker stadig i højre og venstre. <a href="https://www.facebook.com/SquadraMolteni">Følg os på Facebook →</a></p>
+<p class="facebook-band"><span aria-hidden="true">🚴</span> Vi stikker stadig i højre og venstre. <a href="https://www.facebook.com/SquadraMolteni">Følg os på Facebook →</a></p>
 <main>
-<article>
+<article data-pagefind-body>
 <h1>Fondazione Ambrogio Molteni</h1>
-<p class="meta"><time datetime="2022-01-03T21:42:27+01:00">03.01.2022</time> · Squadra Molteni</p>
-<p class="meta"><a href="/category/nyheder/">Nyheder</a></p>
+<p class="meta" data-pagefind-ignore><time datetime="2022-01-03T21:42:27+01:00">03.01.2022</time> · Squadra Molteni</p>
+<p class="meta" data-pagefind-ignore><a href="/category/nyheder/">Nyheder</a></p>
 
 <img class="featured" src="/nyheder/fondazione-ambrogio-molteni/Skærmbillede-2022-01-03-kl.-21.31.28.webp" alt="">
 <div class="body"><p>Molteni-familien skabte et af cykelsportens allerførste internationale tophold. Fra slutningen af<br/>
@@ -45,7 +49,7 @@
 <p>Web: <a href="https://www.fondazionemolteni.org/">https://www.fondazionemolteni.org/<br/>
 </a>Instagram: <a href="https://www.instagram.com/fondazione.molteni/">https://www.instagram.com/fondazione.molteni/</a></p>
 </div>
-<nav class="prev-next" aria-label="Forrige og næste artikel">
+<nav class="prev-next" aria-label="Forrige og næste artikel" data-pagefind-ignore>
 <a class="previous" href="/nyheder/ja-vi-bruger-ogsaa-kartoner/">← Ja, vi bruger også kartoner!</a>
 <a class="next" href="/nyheder/molteni-historien-familie-hold/">Molteni – historien om en familie og et hold →</a>
 </nav>
@@ -67,5 +71,7 @@
 
 </nav>
 </footer>
+<script src="/pagefind/pagefind-ui.js"></script>
+<script>new PagefindUI({ element: "#search", showImages: false, showSubResults: false, resetStyles: false });</script>
 </body>
 </html>

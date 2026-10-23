@@ -5,13 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>10-år jubilæum – Squadra Molteni</title>
 <link rel="canonical" href="https://squadramolteni.github.io/jubilaeum/">
+<link rel="stylesheet" href="/pagefind/pagefind-ui.css">
 <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
 <header class="site-header">
+<div class="header-row">
 <nav aria-label="Hovedmenu">
 <details class="menu">
-<summary><span aria-hidden="true">☰</span> Menu</summary>
+<summary aria-label="Menu"><span aria-hidden="true">☰</span></summary>
 <ul>
 <li><a href="/">Forside</a></li>
 <li><a href="/#kategorier">Kategorier</a></li>
@@ -25,9 +27,12 @@
 
 </details>
 </nav>
+<div id="search" class="site-search"></div>
+</div>
 </header>
-<p class="facebook-band"><span aria-hidden="true">🚴</span> Squadra Molteni stikker stadig i højre og venstre. <a href="https://www.facebook.com/SquadraMolteni">Følg os på Facebook →</a></p>
+<p class="facebook-band"><span aria-hidden="true">🚴</span> Vi stikker stadig i højre og venstre. <a href="https://www.facebook.com/SquadraMolteni">Følg os på Facebook →</a></p>
 <main>
+<div data-pagefind-body>
 <h1>10-år jubilæum</h1>
 <div class="body"><p><strong>OBS:<b>27/4: TILMELDINGEN ER LUKKET </b></strong></p>
 <p>Squadra Molteni har i 2024 10-års jubilæum – og det skal fejres!<br/>
@@ -80,6 +85,7 @@ Inkluderet i prisen er: gentlemanrace med bjergkonkurrence og sprintkonkurrence,
 </div>
 </div>
 </div>
+</div>
 
 </main>
 <footer class="site-footer">
@@ -97,5 +103,7 @@ Inkluderet i prisen er: gentlemanrace med bjergkonkurrence og sprintkonkurrence,
 
 </nav>
 </footer>
+<script src="/pagefind/pagefind-ui.js"></script>
+<script>new PagefindUI({ element: "#search", showImages: false, showSubResults: false, resetStyles: false });</script>
 </body>
 </html>

@@ -5,13 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Radio Molteni – Squadra Molteni</title>
 <link rel="canonical" href="https://squadramolteni.github.io/radio-molteni-3/">
+<link rel="stylesheet" href="/pagefind/pagefind-ui.css">
 <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
 <header class="site-header">
+<div class="header-row">
 <nav aria-label="Hovedmenu">
 <details class="menu">
-<summary><span aria-hidden="true">☰</span> Menu</summary>
+<summary aria-label="Menu"><span aria-hidden="true">☰</span></summary>
 <ul>
 <li><a href="/">Forside</a></li>
 <li><a href="/#kategorier">Kategorier</a></li>
@@ -25,9 +27,12 @@
 
 </details>
 </nav>
+<div id="search" class="site-search"></div>
+</div>
 </header>
-<p class="facebook-band"><span aria-hidden="true">🚴</span> Squadra Molteni stikker stadig i højre og venstre. <a href="https://www.facebook.com/SquadraMolteni">Følg os på Facebook →</a></p>
+<p class="facebook-band"><span aria-hidden="true">🚴</span> Vi stikker stadig i højre og venstre. <a href="https://www.facebook.com/SquadraMolteni">Følg os på Facebook →</a></p>
 <main>
+<div data-pagefind-body>
 <h1>Radio Molteni</h1>
 <div class="body"><h3>Maria Winther og de nordfranske brosten</h3>
 <p>I kaptajnens køkken sidder Maria Winther og drikke rødvin. Der er lagt op til hygge – og en snak om Marias debut på cykel på et fransk bjerg, hendes vej fra hardcore fan til hardcore rytter,  og hendes kærlighed til nordfranske brosten. Det er en fantastisk udsendelse…</p>
@@ -64,6 +69,7 @@ En fremragende og oplysende udsendelse, der bl.a. også røber hemmeligheden ved
 <h3>Radio Moltenis officielle jingle</h3>
 <div class="player"><iframe allowfullscreen="" loading="lazy" src="https://w.soundcloud.com/player/?visual=true&amp;url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F469841172&amp;show_artwork=true&amp;maxwidth=840&amp;maxheight=1000" title="SoundCloud-afspiller"></iframe></div><p><a href="https://w.soundcloud.com/player/?visual=true&amp;url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F469841172&amp;show_artwork=true&amp;maxwidth=840&amp;maxheight=1000">Hør på SoundCloud</a></p>
 </div>
+</div>
 
 </main>
 <footer class="site-footer">
@@ -81,5 +87,7 @@ En fremragende og oplysende udsendelse, der bl.a. også røber hemmeligheden ved
 
 </nav>
 </footer>
+<script src="/pagefind/pagefind-ui.js"></script>
+<script>new PagefindUI({ element: "#search", showImages: false, showSubResults: false, resetStyles: false });</script>
 </body>
 </html>

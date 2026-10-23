@@ -5,13 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>100 gange Kiddesvej – Squadra Molteni</title>
 <link rel="canonical" href="https://squadramolteni.github.io/nyheder/100-gange-kiddesvej/">
+<link rel="stylesheet" href="/pagefind/pagefind-ui.css">
 <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
 <header class="site-header">
+<div class="header-row">
 <nav aria-label="Hovedmenu">
 <details class="menu">
-<summary><span aria-hidden="true">☰</span> Menu</summary>
+<summary aria-label="Menu"><span aria-hidden="true">☰</span></summary>
 <ul>
 <li><a href="/">Forside</a></li>
 <li><a href="/#kategorier">Kategorier</a></li>
@@ -25,14 +27,16 @@
 
 </details>
 </nav>
+<div id="search" class="site-search"></div>
+</div>
 </header>
-<p class="facebook-band"><span aria-hidden="true">🚴</span> Squadra Molteni stikker stadig i højre og venstre. <a href="https://www.facebook.com/SquadraMolteni">Følg os på Facebook →</a></p>
+<p class="facebook-band"><span aria-hidden="true">🚴</span> Vi stikker stadig i højre og venstre. <a href="https://www.facebook.com/SquadraMolteni">Følg os på Facebook →</a></p>
 <main>
-<article>
+<article data-pagefind-body>
 <h1>100 gange Kiddesvej</h1>
-<p class="meta"><time datetime="2017-04-20T08:00:07+02:00">20.04.2017</time> · Squadra Molteni</p>
-<p class="meta"><a href="/category/nyheder/">Nyheder</a></p>
-<p class="meta tags"><a href="/tag/molteni100/">molteni100</a>, <a href="/tag/optakt/">optakt</a></p>
+<p class="meta" data-pagefind-ignore><time datetime="2017-04-20T08:00:07+02:00">20.04.2017</time> · Squadra Molteni</p>
+<p class="meta" data-pagefind-ignore><a href="/category/nyheder/">Nyheder</a></p>
+<p class="meta tags" data-pagefind-ignore><a href="/tag/molteni100/">molteni100</a>, <a href="/tag/optakt/">optakt</a></p>
 <img class="featured" src="/nyheder/100-gange-kiddesvej/100.webp" alt="">
 <div class="body"><p><strong>Om en måned vil 3 ryttere fra Squadra Molteni kaster sig ud i et vildt rekordforsøg: Hver rytter skal køre 100 gange op af Kiddesvej. Selvfølgelig på gamle stålcykler og i uld.</strong></p>
 <h2>Verdensrekordforsøg</h2>
@@ -67,7 +71,7 @@
 </tbody>
 </table>
 </div>
-<nav class="prev-next" aria-label="Forrige og næste artikel">
+<nav class="prev-next" aria-label="Forrige og næste artikel" data-pagefind-ignore>
 <a class="previous" href="/nyheder/optakt-nordfyn-rundt-2017/">← OPTAKT: Nordfyn Rundt 2017</a>
 <a class="next" href="/nyheder/angreb-paa-monte-amaiata/">Angreb på Monte Amaiata →</a>
 </nav>
@@ -89,5 +93,7 @@
 
 </nav>
 </footer>
+<script src="/pagefind/pagefind-ui.js"></script>
+<script>new PagefindUI({ element: "#search", showImages: false, showSubResults: false, resetStyles: false });</script>
 </body>
 </html>

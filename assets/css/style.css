@@ -56,12 +56,53 @@
   --chip-padding-x: var(--space-s);
   --chip-gap: var(--space-s);
   --font-size-chip: 1rem;
+  --chip-fade-width: var(--space-l);
+  --chip-focus-room: var(--space-xs);
+  --chip-scrollbar-width: thin;
+  --chip-mask: linear-gradient(to right, black calc(100% - var(--chip-fade-width)), transparent);
+  /* The "År" and "Kategorier" headings are small labels on phones and full headings on wide screens */
+  --chip-h2-size: var(--font-size-small);
+  --chip-h2-margin: var(--space-s) 0 var(--space-xs);
+  --chip-h2-rule-width: 0;
+  --chip-h2-rule-gap: 0;
 
   /* Menu button in the masthead (ink on orange 7.54:1; open: orange on ink 7.54:1) */
   --color-menu-open-bg: var(--color-header-text);
   --color-menu-open-text: var(--color-header-bg);
-  --menu-button-border-width: 2px;
-  --font-size-menu-icon: 1.25rem;
+  --menu-button-border-width: 0; /* no frame: just the icon */
+  --font-size-menu-icon: 1.75rem;
+
+  /* Search field next to the menu button, and its results panel under the masthead (Pagefind's own script and styles) */
+  --pagefind-ui-scale: 1;
+  --pagefind-ui-primary: var(--color-link);
+  --pagefind-ui-text: var(--color-ink);
+  --pagefind-ui-background: var(--color-paper);
+  --pagefind-ui-border: var(--color-rule);
+  --pagefind-ui-tag: var(--color-tile-hover-bg);
+  --pagefind-ui-border-width: var(--border-width);
+  --pagefind-ui-border-radius: 0;
+  --pagefind-ui-image-border-radius: 0;
+  --pagefind-ui-font: var(--font-body);
+  --search-height: 2.5rem; /* the menu button is as tall as the field */
+  --font-size-search: 1rem; /* at least 16px, so phones do not zoom into the field */
+  --color-search-field-border: var(--color-header-text);
+  --color-search-field-bg: var(--color-header-bg); /* the field sits in the orange header like the menu button */
+  --color-search-placeholder: var(--color-header-text); /* ink on orange 7.54:1 */
+  --search-placeholder-opacity: 1;
+  --search-field-border-width: 2px; /* the line under the search field */
+  --search-icon-indent: var(--space-s);
+  --search-icon-room: 2.25rem;
+  --search-clear-room: 4.5rem;
+  --search-cell: 1 / 1;
+  --search-panel-top: calc(100% + var(--header-edge-bottom));
+  /* the panel fills the screen below the masthead, so no page content shows under it */
+  --header-height: calc(var(--header-edge-top) + var(--header-padding) + var(--search-height) + var(--header-padding) + var(--header-edge-bottom));
+  --search-panel-height: calc(100dvh - var(--header-height));
+  --color-search-mark-bg: #f6cda3; /* Molteni orange 35% on paper; ink on it 12:1 */
+  --color-search-mark-text: var(--color-ink);
+  --color-search-panel-edge: var(--color-ink);
+  --search-panel-edge-width: var(--border-width-thick);
+  --z-search-panel: 10;
 
   /* Footer (rust links on paper 5.92:1) */
   --color-footer-rule: var(--color-ink);
@@ -90,15 +131,11 @@
   --card-image-ratio: 3 / 2;
   --font-size-card-title: 1.0625rem;
 
-  /* Location label on a card image: solid chip, paper on ink 15.57:1, readable over any photo */
-  --color-place-bg: var(--color-ink);
-  --color-place-text: var(--color-paper);
-  --color-flag-edge: var(--color-rule);
+  /* Location label under a card image: muted on paper 6.33:1 */
+  --color-place-text: var(--color-muted);
   --font-size-place: 0.875rem;
-  --place-inset: var(--space-xs);
-  --place-padding-y: 0.125rem;
-  --place-padding-x: var(--space-xs);
-  --flag-width: 1.125rem;
+  --flag-height: 0.75em; /* about the height of a capital letter */
+  --line-height-place: 1;
 
   --color-panel-bg: #ebe3d2;
   --color-panel-border: var(--color-ink);
@@ -160,7 +197,7 @@ body {
   line-height: var(--line-height);
 }
 
-main, .site-header nav, .site-footer nav {
+main, .header-row, .site-footer nav {
   max-width: var(--page-max-width);
   margin: 0 auto;
   padding: var(--space-m);
@@ -194,6 +231,7 @@ h3 { font-size: var(--font-size-h3); margin: var(--space-l) 0 var(--space-s); }
 
 /* Masthead: the band at the top of every page with the menu */
 .site-header {
+  position: relative;
   background: var(--color-header-bg);
   color: var(--color-header-text);
   border-top: var(--header-edge-top) solid var(--color-header-edge);
@@ -205,9 +243,10 @@ h3 { font-size: var(--font-size-h3); margin: var(--space-l) 0 var(--space-s); }
   height: var(--stripe-height);
   background: var(--stripe);
 }
-.site-header nav { padding-top: var(--header-padding); padding-bottom: var(--header-padding); }
-.site-header ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--space-s) var(--space-m); line-height: var(--line-height-heading); }
-.site-header a {
+.header-row { display: flex; align-items: flex-start; gap: var(--space-s); padding-top: var(--header-padding); padding-bottom: var(--header-padding); }
+.header-row nav { flex: none; }
+.site-header nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--space-s) var(--space-m); line-height: var(--line-height-heading); }
+.site-header nav a {
   color: var(--color-header-text);
   font-family: var(--font-nav);
   font-weight: var(--font-weight-nav);
@@ -217,14 +256,15 @@ h3 { font-size: var(--font-size-h3); margin: var(--space-l) 0 var(--space-s); }
   letter-spacing: var(--nav-letter-spacing);
   text-decoration: none;
 }
-.site-header a:hover { text-decoration: underline; }
-.site-header a:focus-visible { outline-color: var(--color-header-text); }
+.site-header nav a:hover { text-decoration: underline; }
+.site-header nav a:focus-visible { outline-color: var(--color-header-text); }
 
 /* Menu: a button that opens the list of links, the same on every screen, without script */
 .menu summary {
   display: inline-flex;
   align-items: center;
   gap: var(--space-s);
+  min-height: var(--search-height);
   padding: var(--space-xs) var(--space-s);
   border: var(--menu-button-border-width) solid var(--color-header-text);
   color: var(--color-header-text);
@@ -244,6 +284,52 @@ h3 { font-size: var(--font-size-h3); margin: var(--space-l) 0 var(--space-s); }
 .menu[open] summary { background: var(--color-menu-open-bg); color: var(--color-menu-open-text); }
 .menu ul { flex-direction: column; padding-top: var(--space-s); }
 .menu a { display: block; padding: var(--space-xs) 0; }
+
+/* Search: Pagefind draws the field into #search. The field takes the rest of the header row;
+   icon, field and clear button share one grid cell, so the results panel can be placed against the whole masthead. */
+.site-search { flex: auto; min-width: 0; }
+.site-search .pagefind-ui__form { position: static; display: grid; }
+.site-search .pagefind-ui__form::before,
+.site-search .pagefind-ui__search-input,
+.site-search .pagefind-ui__search-clear { grid-area: var(--search-cell); }
+.site-search .pagefind-ui__form::before { position: static; align-self: center; margin-left: var(--search-icon-indent); }
+.site-search .pagefind-ui__search-input {
+  position: static; /* paints in source order, under the clear button */
+  height: var(--search-height);
+  padding: 0 var(--search-clear-room) 0 var(--search-icon-room);
+  border: 0;
+  border-bottom: var(--search-field-border-width) solid var(--color-search-field-border);
+  background: var(--color-search-field-bg);
+  color: var(--color-header-text);
+  font-family: var(--pagefind-ui-font);
+  font-size: var(--font-size-search);
+}
+.site-search .pagefind-ui__search-input::placeholder {
+  color: var(--color-search-placeholder);
+  opacity: var(--search-placeholder-opacity);
+  font-family: var(--font-nav);
+  font-weight: var(--font-weight-nav);
+  font-size: var(--font-size-nav);
+  text-transform: var(--nav-transform);
+  letter-spacing: var(--nav-letter-spacing);
+}
+.site-search .pagefind-ui__search-clear { position: static; justify-self: end; align-self: stretch; height: auto; margin: var(--search-field-border-width); border: 0; background: var(--color-search-field-bg); color: var(--color-header-text); }
+/* Results: a panel under the masthead across the whole page, above the content, scrolling on its own */
+.site-search .pagefind-ui__drawer {
+  position: absolute;
+  top: var(--search-panel-top);
+  left: 0;
+  right: 0;
+  z-index: var(--z-search-panel);
+  height: var(--search-panel-height);
+  overflow-y: auto;
+  padding: 0 var(--space-m) var(--space-m);
+  background: var(--color-paper);
+  border-bottom: var(--search-panel-edge-width) solid var(--color-search-panel-edge);
+}
+.site-search .pagefind-ui__results-area { max-width: var(--page-max-width); margin-left: auto; margin-right: auto; }
+.site-search mark { background: var(--color-search-mark-bg); color: var(--color-search-mark-text); }
+.site-search .pagefind-ui__result-title { font-family: var(--font-heading); line-height: var(--line-height-heading); }
 
 /* Footer: the menu links again, on every page */
 .site-footer { margin-top: var(--space-l); border-top: var(--footer-rule-width) solid var(--color-footer-rule); }
@@ -312,7 +398,27 @@ ul.article-list li, ul.tag-list li {
 ul.article-list time { display: block; font-family: var(--font-meta); }
 
 /* Front page years and categories: small chips, the whole chip is the link */
-ul.chips { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: var(--chip-gap); }
+ul.chips {
+  list-style: none;
+  margin: 0 0 var(--space-s);
+  padding: var(--chip-focus-room) 0;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: var(--chip-gap);
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x proximity;
+  scrollbar-width: var(--chip-scrollbar-width);
+  -webkit-mask-image: var(--chip-mask);
+  mask-image: var(--chip-mask);
+}
+ul.chips li { flex: none; white-space: nowrap; scroll-snap-align: start; }
+.chip-section h2 {
+  font-size: var(--chip-h2-size);
+  margin: var(--chip-h2-margin);
+  padding-top: var(--chip-h2-rule-gap);
+  border-top: var(--chip-h2-rule-width) solid var(--color-h2-rule);
+}
 ul.chips li {
   position: relative;
   display: flex;
@@ -340,7 +446,7 @@ ul.cards {
   list-style: none;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(var(--card-columns), 1fr);
+  grid-template-columns: repeat(var(--card-columns), minmax(0, 1fr));
   gap: var(--card-gap);
 }
 ul.cards li { background: var(--color-card-bg); border: var(--card-border-width) solid var(--color-card-border); }
@@ -348,25 +454,21 @@ ul.cards li:hover { background: var(--color-card-hover-bg); }
 ul.cards a { display: block; height: 100%; color: var(--color-ink); text-decoration: none; }
 .card-image { display: block; position: relative; }
 img.photo { display: block; width: 100%; aspect-ratio: var(--card-image-ratio); object-fit: cover; }
-ul.cards h3 { font-size: var(--font-size-card-title); margin: var(--space-s) var(--space-s) var(--space-xs); }
+ul.cards h3 { font-size: var(--font-size-card-title); margin: var(--space-xs) var(--space-s); }
 ul.cards time { display: block; margin: 0 var(--space-s) var(--space-s); font-family: var(--font-meta); }
 
-/* Location label on the card image: flag, pin, country */
+/* Location label under the card image: flag and country, the flag centred on the text */
 .place {
-  position: absolute;
-  left: var(--place-inset);
-  bottom: var(--place-inset);
   display: flex;
   align-items: center;
   gap: var(--space-xs);
-  padding: var(--place-padding-y) var(--place-padding-x);
-  background: var(--color-place-bg);
+  margin: var(--space-s) var(--space-s) 0;
   color: var(--color-place-text);
   font-family: var(--font-meta);
   font-size: var(--font-size-place);
-  line-height: var(--line-height-heading);
+  line-height: var(--line-height-place);
 }
-.place img { display: block; width: var(--flag-width); border: var(--border-width) solid var(--color-flag-edge); }
+.place img { display: block; height: var(--flag-height); width: auto; }
 
 /* Categories and tags: name, a dotted leader, then the count */
 ul.tag-list a { display: flex; flex: auto; align-items: baseline; gap: var(--space-s); }
@@ -441,7 +543,12 @@ figcaption {
     --card-columns: 3;
     --font-size-card-title: 1.25rem;
     --font-size-nav: 1.0625rem;
+    --chip-h2-size: var(--font-size-h2);
+    --chip-h2-margin: var(--space-l) 0 var(--space-s);
+    --chip-h2-rule-width: var(--h2-rule-width);
+    --chip-h2-rule-gap: var(--h2-rule-gap);
   }
+  ul.chips { flex-wrap: wrap; overflow-x: visible; scroll-snap-type: none; -webkit-mask-image: none; mask-image: none; padding: 0; margin: 0; }
   /* Højdepunkter is wider than the text column, centred on it, never wider than the screen */
   #hoejdepunkter { width: var(--wide-width); max-width: calc(var(--screen-width) - var(--space-m) - var(--space-m)); margin-left: var(--centre); transform: translateX(var(--centre-back)); }
   .prev-next { flex-direction: row; justify-content: space-between; }

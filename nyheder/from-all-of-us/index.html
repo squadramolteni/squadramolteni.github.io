@@ -5,13 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>From all of us … – Squadra Molteni</title>
 <link rel="canonical" href="https://squadramolteni.github.io/nyheder/from-all-of-us/">
+<link rel="stylesheet" href="/pagefind/pagefind-ui.css">
 <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
 <header class="site-header">
+<div class="header-row">
 <nav aria-label="Hovedmenu">
 <details class="menu">
-<summary><span aria-hidden="true">☰</span> Menu</summary>
+<summary aria-label="Menu"><span aria-hidden="true">☰</span></summary>
 <ul>
 <li><a href="/">Forside</a></li>
 <li><a href="/#kategorier">Kategorier</a></li>
@@ -25,13 +27,15 @@
 
 </details>
 </nav>
+<div id="search" class="site-search"></div>
+</div>
 </header>
-<p class="facebook-band"><span aria-hidden="true">🚴</span> Squadra Molteni stikker stadig i højre og venstre. <a href="https://www.facebook.com/SquadraMolteni">Følg os på Facebook →</a></p>
+<p class="facebook-band"><span aria-hidden="true">🚴</span> Vi stikker stadig i højre og venstre. <a href="https://www.facebook.com/SquadraMolteni">Følg os på Facebook →</a></p>
 <main>
-<article>
+<article data-pagefind-body>
 <h1>From all of us …</h1>
-<p class="meta"><time datetime="2017-12-23T11:20:55+01:00">23.12.2017</time> · Squadra Molteni</p>
-<p class="meta"><a href="/category/nyheder/">Nyheder</a></p>
+<p class="meta" data-pagefind-ignore><time datetime="2017-12-23T11:20:55+01:00">23.12.2017</time> · Squadra Molteni</p>
+<p class="meta" data-pagefind-ignore><a href="/category/nyheder/">Nyheder</a></p>
 
 <img class="featured" src="/nyheder/from-all-of-us/Skærmbillede-2017-12-23-kl.-11.14.49.webp" alt="">
 <div class="body"><p>Kære alle sammen.<br/>
@@ -42,7 +46,7 @@ Vi håber, I får en hyggelig juleaften – og bagefter kommer godt ud på lande
 <p>Vi glæder os til at se jer næste år!</p>
 <p>Squadra Molteni</p>
 </div>
-<nav class="prev-next" aria-label="Forrige og næste artikel">
+<nav class="prev-next" aria-label="Forrige og næste artikel" data-pagefind-ignore>
 <a class="previous" href="/nyheder/squadra-molteni-sendt-test/">← Squadra Molteni sendt til test</a>
 <a class="next" href="/paris-roubaix-2018/paris-roubaix-102-dage/">Paris-Roubaix – 102 dage →</a>
 </nav>
@@ -64,5 +68,7 @@ Vi håber, I får en hyggelig juleaften – og bagefter kommer godt ud på lande
 
 </nav>
 </footer>
+<script src="/pagefind/pagefind-ui.js"></script>
+<script>new PagefindUI({ element: "#search", showImages: false, showSubResults: false, resetStyles: false });</script>
 </body>
 </html>
